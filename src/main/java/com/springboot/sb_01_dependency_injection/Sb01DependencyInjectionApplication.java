@@ -1,6 +1,7 @@
 package com.springboot.sb_01_dependency_injection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +16,7 @@ public class Sb01DependencyInjectionApplication implements CommandLineRunner {
 	final private NotificationService notificationService;
 
 	// Spring automatically injects the bean in the Parameter below
-	public Sb01DependencyInjectionApplication(NotificationService notificationService) {
+	public Sb01DependencyInjectionApplication(@Qualifier("SmsNotif") NotificationService notificationService) {
 		// initializing the variable with the bean
 		this.notificationService = notificationService;
 	}
